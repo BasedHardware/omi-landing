@@ -82,7 +82,6 @@ export default function Home() {
             <div className="md:col-span-2 md:row-span-2 glass p-8 rounded-3xl border border-purple-500/20 hover:border-purple-500/40 transition-all group">
               <div className="h-full flex flex-col justify-between space-y-6">
                 <div>
-                  <div className="text-6xl mb-4">🛡️</div>
                   <h3 className="text-3xl font-bold mb-4 group-hover:text-purple-300 transition-colors">
                     Pre-Emptive Distraction Blocking
                   </h3>
@@ -92,11 +91,11 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 text-sm text-purple-300">
                   <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                     Real-time monitoring
                   </span>
                   <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
                     Pattern recognition
                   </span>
                 </div>
@@ -105,7 +104,6 @@ export default function Home() {
 
             {/* Medium cards */}
             <div className="glass p-6 rounded-3xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-              <div className="text-5xl mb-4">📧</div>
               <h3 className="text-2xl font-bold mb-3">Emotional Email Detection</h3>
               <p className="text-slate-300">
                 Analyzes your typing patterns. "This email seems heated. Save as draft?"
@@ -113,7 +111,6 @@ export default function Home() {
             </div>
 
             <div className="glass p-6 rounded-3xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-              <div className="text-5xl mb-4">⚠️</div>
               <h3 className="text-2xl font-bold mb-3">Mistake Prevention</h3>
               <p className="text-slate-300">
                 About to delete a folder? Click a sketchy link? "Wait—let me check this."
@@ -121,19 +118,13 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-2 glass p-6 rounded-3xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-              <div className="flex items-start gap-6">
-                <div className="text-5xl">🎯</div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-3">Goal Realignment</h3>
-                  <p className="text-slate-300">
-                    "You said you wanted to finish the report today. You've been researching unrelated topics for 45 minutes. Ready to get back?"
-                  </p>
-                </div>
-              </div>
+              <h3 className="text-2xl font-bold mb-3">Goal Realignment</h3>
+              <p className="text-slate-300">
+                "You said you wanted to finish the report today. You've been researching unrelated topics for 45 minutes. Ready to get back?"
+              </p>
             </div>
 
             <div className="glass p-6 rounded-3xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-              <div className="text-5xl mb-4">⏰</div>
               <h3 className="text-2xl font-bold mb-3">Persistent Check-Ins</h3>
               <p className="text-slate-300">
                 Follows up if you ignore nudges. Not annoying—supportive.
