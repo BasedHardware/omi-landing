@@ -1,3 +1,5 @@
+import { DistractionDemo } from "@/components/distraction-demo";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white overflow-hidden relative">
@@ -92,6 +94,26 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Demo */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent"></div>
+        <div className="container mx-auto px-6">
+          <div className="max-w-7xl mx-auto space-y-12">
+            <div className="text-center space-y-4">
+              <div className="font-mono text-xs text-amber-500 tracking-wider">LIVE DEMO</div>
+              <h2 className="font-serif text-5xl md:text-7xl tracking-tight">
+                See It In Action
+              </h2>
+              <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+                Watch how Omi catches you before the distraction spiral begins
+              </p>
+            </div>
+
+            <DistractionDemo />
           </div>
         </div>
       </section>
