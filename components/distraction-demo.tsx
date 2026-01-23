@@ -79,10 +79,11 @@ export function DistractionDemo() {
           className="relative bg-zinc-950 aspect-video overflow-hidden"
           animate={
             state === "notification"
-              ? { scale: 1.15 }
-              : { scale: 1 }
+              ? { scale: 1.3, x: "-8%", y: "-8%" }
+              : { scale: 1, x: 0, y: 0 }
           }
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ transformOrigin: "top right" }}
         >
           <AnimatePresence mode="wait">
             {(state === "excel" || state === "typing" || state === "moving-cursor" || state === "clicking") && (
