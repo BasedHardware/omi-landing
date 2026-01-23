@@ -3,16 +3,36 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type DemoState = "excel" | "youtube" | "scrolling" | "notification";
+type DemoState = "excel" | "typing" | "moving-cursor" | "clicking" | "youtube" | "scrolling" | "notification";
 
 export function DistractionDemo() {
   const [state, setState] = useState<DemoState>("excel");
-  const [isVisible, setIsVisible] = useState(true);
+  const [typedText, setTypedText] = useState("");
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const sequence = async () => {
       // Start with Excel
-      await wait(2000);
+      setState("excel");
+      setTypedText("");
+      await wait(500);
+
+      // Start typing
+      setState("typing");
+      const text = "$945,120";
+      for (let i = 0; i <= text.length; i++) {
+        setTypedText(text.substring(0, i));
+        await wait(150);
+      }
+      await wait(800);
+
+      // Move cursor to YouTube icon
+      setState("moving-cursor");
+      await wait(1200);
+
+      // Click animation
+      setState("clicking");
+      await wait(400);
 
       // Switch to YouTube
       setState("youtube");
@@ -22,16 +42,16 @@ export function DistractionDemo() {
       setState("scrolling");
       await wait(2500);
 
-      // Show notification
+      // Show notification (doubled duration)
       setState("notification");
-      await wait(3000);
+      await wait(6000);
 
       // Reset and loop
       setState("excel");
     };
 
     sequence();
-    const interval = setInterval(sequence, 11500);
+    const interval = setInterval(sequence, 17000);
     return () => clearInterval(interval);
   }, []);
 
@@ -48,10 +68,24 @@ export function DistractionDemo() {
           </div>
           <div className="flex-1 ml-4">
             <div className="bg-zinc-700 rounded px-3 py-1 text-xs font-mono text-zinc-400">
-              {state === "excel" && "excel.company.com"}
+              {(state === "excel" || state === "typing" || state === "moving-cursor" || state === "clicking") && "excel.company.com"}
               {(state === "youtube" || state === "scrolling" || state === "notification") && "youtube.com"}
             </div>
           </div>
+          {/* YouTube Bookmark Icon */}
+          <motion.div
+            className="relative w-8 h-8 bg-red-600 rounded flex items-center justify-center cursor-pointer hover:bg-red-500 transition-colors"
+            animate={
+              state === "clicking"
+                ? { scale: [1, 0.9, 1] }
+                : { scale: 1 }
+            }
+            transition={{ duration: 0.2 }}
+          >
+            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </motion.div>
         </div>
 
         {/* Content Area */}
@@ -88,22 +122,22 @@ export function DistractionDemo() {
                     {[
                       { month: "October", revenue: "$847,293", expenses: "$524,100", profit: "$323,193" },
                       { month: "November", revenue: "$912,458", expenses: "$589,230", profit: "$323,228" },
-                      { month: "December", revenue: "", expenses: "", profit: "" },
+                      { month: "December", revenue: typedText, expenses: "", profit: "" },
                     ].map((row, i) => (
                       <div key={i} className="grid grid-cols-4 border-b border-zinc-200 hover:bg-zinc-50">
                         <div className="px-2 py-1.5 text-xs text-zinc-700 border-r border-zinc-200">{row.month}</div>
-                        <div className="px-2 py-1.5 text-xs text-zinc-700 border-r border-zinc-200">{row.revenue}</div>
-                        <div className="px-2 py-1.5 text-xs text-zinc-700 border-r border-zinc-200">{row.expenses}</div>
-                        <div className="px-2 py-1.5 text-xs text-zinc-700">
-                          {row.profit}
-                          {i === 2 && (
+                        <div className="px-2 py-1.5 text-xs text-zinc-700 border-r border-zinc-200">
+                          {row.revenue}
+                          {i === 2 && state === "typing" && (
                             <motion.span
                               animate={{ opacity: [0, 1, 0] }}
-                              transition={{ duration: 1, repeat: Infinity }}
+                              transition={{ duration: 0.8, repeat: Infinity }}
                               className="inline-block w-1 h-3 bg-blue-600 ml-0.5"
                             />
                           )}
                         </div>
+                        <div className="px-2 py-1.5 text-xs text-zinc-700 border-r border-zinc-200">{row.expenses}</div>
+                        <div className="px-2 py-1.5 text-xs text-zinc-700">{row.profit}</div>
                       </div>
                     ))}
                   </div>
@@ -205,6 +239,32 @@ export function DistractionDemo() {
             )}
           </AnimatePresence>
 
+          {/* Animated Mouse Cursor */}
+          <AnimatePresence>
+            {(state === "moving-cursor" || state === "clicking") && (
+              <motion.div
+                className="absolute pointer-events-none z-50"
+                initial={{ x: "50%", y: "60%" }}
+                animate={
+                  state === "moving-cursor" || state === "clicking"
+                    ? { x: "calc(100% - 80px)", y: "-40px" }
+                    : { x: "50%", y: "60%" }
+                }
+                transition={{ duration: 1, ease: "easeInOut" }}
+              >
+                {/* Cursor Arrow */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 3L19 12L12 13L9 20L5 3Z"
+                    fill="white"
+                    stroke="black"
+                    strokeWidth="1"
+                  />
+                </svg>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {/* Notification Popup */}
           <AnimatePresence>
             {state === "notification" && (
@@ -247,11 +307,16 @@ export function DistractionDemo() {
 
       {/* Timeline indicator */}
       <div className="mt-6 flex items-center justify-center gap-2">
-        {(["excel", "youtube", "scrolling", "notification"] as DemoState[]).map((s, i) => (
+        {[
+          { key: "work", active: state === "excel" || state === "typing" || state === "moving-cursor" || state === "clicking" },
+          { key: "youtube", active: state === "youtube" },
+          { key: "scrolling", active: state === "scrolling" },
+          { key: "notification", active: state === "notification" },
+        ].map((phase, i) => (
           <div
-            key={s}
+            key={phase.key}
             className={`h-1 rounded-full transition-all duration-300 ${
-              state === s ? "w-12 bg-amber-500" : "w-8 bg-zinc-700"
+              phase.active ? "w-12 bg-amber-500" : "w-8 bg-zinc-700"
             }`}
           />
         ))}
@@ -260,8 +325,11 @@ export function DistractionDemo() {
       {/* Caption */}
       <div className="mt-4 text-center">
         <p className="text-sm text-zinc-500 font-mono">
-          {state === "excel" && "Filling out the December revenue data..."}
-          {state === "youtube" && "\"Just need to check one thing on YouTube...\""}
+          {state === "excel" && "Working on the Q4 revenue report..."}
+          {state === "typing" && "Entering December revenue data..."}
+          {state === "moving-cursor" && "\"Just a quick check on YouTube...\""}
+          {state === "clicking" && "Clicking..."}
+          {state === "youtube" && "\"Just one video...\""}
           {state === "scrolling" && "12 minutes later, still scrolling..."}
           {state === "notification" && "Omi catches the distraction spiral ✨"}
         </p>
