@@ -91,7 +91,7 @@ export function DistractionDemo() {
         {/* Content Area */}
         <div className="relative bg-zinc-950 aspect-video overflow-hidden">
           <AnimatePresence mode="wait">
-            {state === "excel" && (
+            {(state === "excel" || state === "typing" || state === "moving-cursor" || state === "clicking") && (
               <motion.div
                 key="excel"
                 initial={{ opacity: 0, scale: 0.95 }}
