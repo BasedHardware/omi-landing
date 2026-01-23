@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 type DemoState = "excel" | "typing" | "moving-cursor" | "clicking" | "youtube" | "scrolling" | "notification";
 
@@ -9,8 +9,11 @@ export function DistractionDemo() {
   const [state, setState] = useState<DemoState>("excel");
   const [typedText, setTypedText] = useState("");
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   useEffect(() => {
+    if (!isInView) return;
     const sequence = async () => {
       // Start with Excel
       setState("excel");
@@ -53,10 +56,10 @@ export function DistractionDemo() {
     sequence();
     const interval = setInterval(sequence, 17000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isInView]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div ref={containerRef} className="relative w-full max-w-4xl mx-auto">
       {/* Desktop Frame */}
       <div className="relative bg-zinc-900 rounded-lg border-4 border-zinc-800 overflow-hidden shadow-2xl">
         {/* Browser Chrome */}
