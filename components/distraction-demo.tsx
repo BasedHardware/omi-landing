@@ -72,24 +72,18 @@ export function DistractionDemo() {
               {(state === "youtube" || state === "scrolling" || state === "notification") && "youtube.com"}
             </div>
           </div>
-          {/* YouTube Bookmark Icon */}
-          <motion.div
-            className="relative w-8 h-8 bg-red-600 rounded flex items-center justify-center cursor-pointer hover:bg-red-500 transition-colors"
-            animate={
-              state === "clicking"
-                ? { scale: [1, 0.9, 1] }
-                : { scale: 1 }
-            }
-            transition={{ duration: 0.2 }}
-          >
-            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-          </motion.div>
         </div>
 
         {/* Content Area */}
-        <div className="relative bg-zinc-950 aspect-video overflow-hidden">
+        <motion.div
+          className="relative bg-zinc-950 aspect-video overflow-hidden"
+          animate={
+            state === "notification"
+              ? { scale: 1.15 }
+              : { scale: 1 }
+          }
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <AnimatePresence mode="wait">
             {(state === "excel" || state === "typing" || state === "moving-cursor" || state === "clicking") && (
               <motion.div
@@ -239,18 +233,60 @@ export function DistractionDemo() {
             )}
           </AnimatePresence>
 
+          {/* Bottom Taskbar */}
+          <div className="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur-sm border-t border-zinc-700 px-4 py-2 flex items-center justify-center gap-3">
+            {/* Taskbar Icons */}
+            <div className="w-10 h-10 bg-zinc-800 rounded flex items-center justify-center hover:bg-zinc-700 transition-colors">
+              <svg className="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
+            </div>
+            <div className="w-10 h-10 bg-zinc-800 rounded flex items-center justify-center hover:bg-zinc-700 transition-colors">
+              <svg className="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+
+            {/* YouTube Icon - Center */}
+            <motion.div
+              className="w-12 h-12 bg-red-600 rounded flex items-center justify-center cursor-pointer hover:bg-red-500 transition-colors shadow-lg"
+              animate={
+                state === "clicking"
+                  ? { scale: [1, 0.85, 1.05, 1] }
+                  : { scale: 1 }
+              }
+              transition={{ duration: 0.3 }}
+            >
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </motion.div>
+
+            <div className="w-10 h-10 bg-zinc-800 rounded flex items-center justify-center hover:bg-zinc-700 transition-colors">
+              <svg className="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="w-10 h-10 bg-zinc-800 rounded flex items-center justify-center hover:bg-zinc-700 transition-colors">
+              <svg className="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+          </div>
+
           {/* Animated Mouse Cursor */}
           <AnimatePresence>
             {(state === "moving-cursor" || state === "clicking") && (
               <motion.div
                 className="absolute pointer-events-none z-50"
-                initial={{ x: "50%", y: "60%" }}
+                initial={{ x: "50%", y: "50%" }}
                 animate={
                   state === "moving-cursor" || state === "clicking"
-                    ? { x: "calc(100% - 80px)", y: "-40px" }
-                    : { x: "50%", y: "60%" }
+                    ? { x: "50%", y: "calc(100% - 70px)" }
+                    : { x: "50%", y: "50%" }
                 }
-                transition={{ duration: 1, ease: "easeInOut" }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
               >
                 {/* Cursor Arrow */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -302,7 +338,7 @@ export function DistractionDemo() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
 
       {/* Timeline indicator */}
