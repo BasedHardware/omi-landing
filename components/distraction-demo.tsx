@@ -279,24 +279,32 @@ export function DistractionDemo() {
           <AnimatePresence>
             {(state === "moving-cursor" || state === "clicking") && (
               <motion.div
-                className="absolute pointer-events-none z-50"
-                initial={{ x: "50%", y: "50%" }}
-                animate={
-                  state === "moving-cursor" || state === "clicking"
-                    ? { x: "50%", y: "calc(100% - 70px)" }
-                    : { x: "50%", y: "50%" }
-                }
+                className="absolute pointer-events-none z-[100]"
+                initial={{ left: "50%", top: "40%" }}
+                animate={{
+                  left: "50%",
+                  top: state === "clicking" ? "calc(100% - 60px)" : "calc(100% - 65px)"
+                }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
+                style={{ transform: "translate(-50%, -50%)" }}
               >
-                {/* Cursor Arrow */}
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                {/* Cursor Arrow with Shadow for Visibility */}
+                <motion.svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  animate={state === "clicking" ? { scale: [1, 0.8, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}
+                >
                   <path
                     d="M5 3L19 12L12 13L9 20L5 3Z"
                     fill="white"
                     stroke="black"
-                    strokeWidth="1"
+                    strokeWidth="1.5"
                   />
-                </svg>
+                </motion.svg>
               </motion.div>
             )}
           </AnimatePresence>
