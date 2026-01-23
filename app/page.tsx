@@ -1,5 +1,4 @@
 import { DistractionDemo } from "@/components/distraction-demo";
-import { DistractionDemoLottie } from "@/components/distraction-demo-lottie";
 
 export default function Home() {
   return (
@@ -115,8 +114,6 @@ export default function Home() {
             </div>
 
             <DistractionDemo />
-
-            <DistractionDemoLottie />
           </div>
         </div>
       </section>
