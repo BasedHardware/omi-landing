@@ -38,9 +38,9 @@ export default function Home() {
                   <span className="relative z-10">GET STARTED</span>
                   <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 </a>
-                <button className="px-10 py-5 border-2 border-white/20 font-mono text-sm font-bold tracking-wider hover:bg-white/5 transition-colors">
-                  WATCH DEMO
-                </button>
+                <a href="https://cdn.crabnebula.app/download/mediar/omi-computer/latest/OMI-COMPUTER.dmg" className="px-10 py-5 border-2 border-white/20 font-mono text-sm font-bold tracking-wider hover:bg-white/5 hover:border-amber-500/50 transition-colors text-center">
+                  DOWNLOAD FOR MAC
+                </a>
               </div>
             </div>
 
