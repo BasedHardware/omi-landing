@@ -1,12 +1,8 @@
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      {/* Noise texture overlay */}
-      <div className="fixed inset-0 opacity-[0.015] pointer-events-none bg-noise"></div>
-
-      {/* Geometric accent elements */}
-      <div className="fixed top-0 right-0 w-[40vw] h-[40vw] border-l border-b border-white/10 pointer-events-none"></div>
-      <div className="fixed bottom-0 left-0 w-96 h-96 bg-white/5 pointer-events-none transform -translate-x-1/2 translate-y-1/2"></div>
+      {/* Background pattern */}
+      <div className="fixed inset-0 pointer-events-none bg-dots opacity-60"></div>
 
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
