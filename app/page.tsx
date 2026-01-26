@@ -33,7 +33,7 @@ export default function Home() {
                 muted
                 playsInline
               >
-                <source src="/videos/omi-rewind-hq.mp4#t=3" type="video/mp4" />
+                <source src="/videos/omi-rewind-hq.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="flex gap-6 mt-4 font-mono text-xs text-zinc-500 justify-center">
