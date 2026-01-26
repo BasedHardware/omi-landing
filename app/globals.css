@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,47 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --primary: 45 93% 47%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 240 4.8% 95.9%;
-    --accent: 45 93% 47%;
-    --muted: 240 4.8% 95.9%;
-    --border: 240 5.9% 90%;
+    --secondary: 0 0% 10%;
+    --accent: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --border: 0 0% 20%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --primary: 45 93% 47%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 240 3.7% 15.9%;
-    --accent: 45 93% 47%;
-    --muted: 240 3.7% 15.9%;
-    --border: 240 3.7% 15.9%;
+    --secondary: 0 0% 10%;
+    --accent: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --border: 0 0% 20%;
   }
 }
 
 @layer base {
   body {
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: "Assistant", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
 
   .font-serif {
-    font-family: "DM Serif Display", Georgia, serif;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
   }
 
   .font-mono {
-    font-family: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
   }
 }
 
@@ -113,14 +116,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f59e0b;
-  border: 2px solid #18181b;
+  background: #525252;
+  border: 2px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fbbf24;
+  background: #737373;
 }
