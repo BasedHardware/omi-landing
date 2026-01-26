@@ -21,8 +21,33 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Video Demo Section */}
+      {/* Hero Content Section */}
       <section className="relative pt-32 pb-12">
+        <div className="container mx-auto px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-3xl space-y-8">
+              <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">
+                <span className="block text-white">Your AI</span>
+                <span className="block text-white">Productivity</span>
+                <span className="block text-white italic">Guardian</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light border-l-2 border-white/20 pl-6">
+                The only AI assistant that proactively intervenes before you lose focus, make mistakes, or waste your day.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="https://macos.omi.me" className="px-10 py-5 border-2 border-white/20 font-mono text-sm font-bold tracking-wider hover:bg-white/5 hover:border-white/50 transition-colors text-center">
+                  DOWNLOAD FOR MAC
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Demo Section */}
+      <section className="relative py-24">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="relative rounded-lg overflow-hidden border border-white/10">
@@ -45,31 +70,6 @@ export default function Home() {
                 <div className="w-1.5 h-1.5 bg-white animate-pulse"></div>
                 ALWAYS LISTENING
               </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hero Content Section */}
-      <section className="relative py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl space-y-8">
-              <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">
-                <span className="block text-white">Your AI</span>
-                <span className="block text-white">Productivity</span>
-                <span className="block text-white italic">Guardian</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light border-l-2 border-white/20 pl-6">
-                The only AI assistant that proactively intervenes before you lose focus, make mistakes, or waste your day.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="https://macos.omi.me" className="px-10 py-5 border-2 border-white/20 font-mono text-sm font-bold tracking-wider hover:bg-white/5 hover:border-white/50 transition-colors text-center">
-                  DOWNLOAD FOR MAC
-                </a>
-              </div>
             </div>
           </div>
         </div>
