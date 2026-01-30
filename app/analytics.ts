@@ -30,19 +30,26 @@ export function initAnalytics() {
 
 interface OSInfo {
   osName: string;
-  osVersion: string | null;
-  osMajorVersion: number | null;
-  isCompatible: boolean;
+  // Note: User-Agent version is UNRELIABLE - Chrome/Firefox freeze it at 10.15.7
+  // for privacy reasons, even on newer macOS versions
+  uaOsVersion: string | null;
   isMac: boolean;
 }
 
 /**
  * Parse OS info from User-Agent
- * macOS User-Agent example: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+ *
+ * IMPORTANT: The macOS version from User-Agent is UNRELIABLE.
+ * Chrome and Firefox freeze it at "10.15.7" for privacy/compatibility reasons,
+ * even when running on macOS 11, 12, 13, 14, or 15.
+ * Only Safari reports the actual macOS version.
+ *
+ * We track this for informational purposes only - the actual macOS version
+ * will be captured by the desktop app's "First Launch" event.
  */
 export function getOSInfo(): OSInfo {
   if (typeof window === 'undefined') {
-    return { osName: 'unknown', osVersion: null, osMajorVersion: null, isCompatible: false, isMac: false };
+    return { osName: 'unknown', uaOsVersion: null, isMac: false };
   }
 
   const ua = navigator.userAgent;
@@ -55,41 +62,34 @@ export function getOSInfo(): OSInfo {
     const patch = macMatch[3] ? parseInt(macMatch[3], 10) : 0;
     const version = `${major}.${minor}.${patch}`;
 
-    // macOS 15.0 is required (Sequoia)
-    // Note: User-Agent reports macOS version differently - 10.15 is Catalina, 11+ is Big Sur onwards
-    // macOS 15 (Sequoia) shows as "15" in newer Safari, but may show as "10.15" in some browsers
-    const isCompatible = major >= 15 || (major === 10 && minor >= 15);
-
     return {
       osName: 'macOS',
-      osVersion: version,
-      osMajorVersion: major === 10 ? minor : major, // Normalize: 10.15 -> 15, 11 -> 11, etc.
-      isCompatible: major >= 15, // Only macOS 15+ (Sequoia) is truly compatible
+      uaOsVersion: version,
       isMac: true,
     };
   }
 
   // Check for Windows
   if (ua.includes('Windows')) {
-    return { osName: 'Windows', osVersion: null, osMajorVersion: null, isCompatible: false, isMac: false };
+    return { osName: 'Windows', uaOsVersion: null, isMac: false };
   }
 
   // Check for Linux
-  if (ua.includes('Linux')) {
-    return { osName: 'Linux', osVersion: null, osMajorVersion: null, isCompatible: false, isMac: false };
+  if (ua.includes('Linux') && !ua.includes('Android')) {
+    return { osName: 'Linux', uaOsVersion: null, isMac: false };
   }
 
   // Check for iOS
   if (ua.includes('iPhone') || ua.includes('iPad')) {
-    return { osName: 'iOS', osVersion: null, osMajorVersion: null, isCompatible: false, isMac: false };
+    return { osName: 'iOS', uaOsVersion: null, isMac: false };
   }
 
   // Check for Android
   if (ua.includes('Android')) {
-    return { osName: 'Android', osVersion: null, osMajorVersion: null, isCompatible: false, isMac: false };
+    return { osName: 'Android', uaOsVersion: null, isMac: false };
   }
 
-  return { osName: 'unknown', osVersion: null, osMajorVersion: null, isCompatible: false, isMac: false };
+  return { osName: 'unknown', uaOsVersion: null, isMac: false };
 }
 
 /**
@@ -112,9 +112,8 @@ export function getBrowser(): string {
 interface DownloadClickProperties {
   button_location: 'header' | 'hero';
   os_name: string;
-  os_version: string | null;
-  os_major_version: number | null;
-  is_compatible: boolean;
+  // Renamed to make it clear this is from User-Agent and may be inaccurate
+  ua_os_version: string | null;
   is_mac: boolean;
   browser: string;
   user_agent: string;
@@ -132,9 +131,7 @@ export function trackDownloadClick(buttonLocation: 'header' | 'hero') {
   const properties: DownloadClickProperties = {
     button_location: buttonLocation,
     os_name: osInfo.osName,
-    os_version: osInfo.osVersion,
-    os_major_version: osInfo.osMajorVersion,
-    is_compatible: osInfo.isCompatible,
+    ua_os_version: osInfo.uaOsVersion,
     is_mac: osInfo.isMac,
     browser,
     user_agent: typeof window !== 'undefined' ? navigator.userAgent : '',
@@ -160,7 +157,7 @@ export function trackPageView(pageName: string) {
   const properties = {
     page_name: pageName,
     os_name: osInfo.osName,
-    os_version: osInfo.osVersion,
+    ua_os_version: osInfo.uaOsVersion,
     is_mac: osInfo.isMac,
     browser: getBrowser(),
   };
