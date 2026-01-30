@@ -1,3 +1,5 @@
+import DownloadButton from '../components/DownloadButton';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
@@ -11,12 +13,12 @@ export default function Home() {
             <a href="https://omi.me" className="flex items-center">
               <img src="/images/omi-logo.png" alt="omi" className="h-6" />
             </a>
-            <a
-              href="https://github.com/BasedHardware/omi/releases/latest/download/Omi.Computer.dmg"
+            <DownloadButton
+              location="header"
               className="px-6 py-2 border border-white/20 font-mono text-xs font-bold tracking-wider hover:bg-white/5 hover:border-white/50 transition-colors"
             >
               DOWNLOAD FOR MAC
-            </a>
+            </DownloadButton>
           </div>
         </div>
       </header>
@@ -37,9 +39,12 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="https://github.com/BasedHardware/omi/releases/latest/download/Omi.Computer.dmg" className="px-10 py-5 border-2 border-white/20 font-mono text-sm font-bold tracking-wider hover:bg-white/5 hover:border-white/50 transition-colors text-center">
+                <DownloadButton
+                  location="hero"
+                  className="px-10 py-5 border-2 border-white/20 font-mono text-sm font-bold tracking-wider hover:bg-white/5 hover:border-white/50 transition-colors text-center"
+                >
                   DOWNLOAD FOR MAC
-                </a>
+                </DownloadButton>
               </div>
             </div>
           </div>
