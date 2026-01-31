@@ -9,7 +9,7 @@ interface DownloadButtonProps {
   children: React.ReactNode;
 }
 
-const DOWNLOAD_URL = 'https://github.com/BasedHardware/omi/releases/latest/download/Omi.Computer.dmg';
+const DOWNLOAD_URL = 'https://desktop-backend-hhibjajaja-uc.a.run.app/download';
 
 export default function DownloadButton({ location, className, children }: DownloadButtonProps) {
   useEffect(() => {
