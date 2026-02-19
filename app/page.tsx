@@ -29,12 +29,12 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl space-y-8">
               <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">
-                <span className="block text-white">AI That Does</span>
-                <span className="block text-white italic">Real Work</span>
+                <span className="block text-white">AI Agents That</span>
+                <span className="block text-white italic">Work Hard</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light border-l-2 border-white/20 pl-6">
-                Browser automation, coding agent, and file system access—combined into one AI that actually gets things done on your computer.
+                Not just browsing the web—Omi reads your files, operates your computer, and does all the things on your machine. Real AI agents that work hard so you don't have to.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
