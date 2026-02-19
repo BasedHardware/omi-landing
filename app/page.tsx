@@ -30,7 +30,7 @@ export default function Home() {
             <div className="max-w-3xl space-y-8">
               <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">
                 <span className="block text-white">AI That Operates</span>
-                <span className="block text-white"><span className="italic">Your</span> Computer</span>
+                <span className="block text-white"><span className="italic underline decoration-2 underline-offset-4">Your</span> Computer</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light border-l-2 border-white/20 pl-6">
