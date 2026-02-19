@@ -91,17 +91,17 @@ export default function Home() {
               <div className="md:col-span-3 relative overflow-hidden rounded-lg border-2 border-white/10 hover:border-white/20 transition-colors">
                 <img
                   src="/images/task-capture.png"
-                  alt="Omi automating browser tasks"
+                  alt="Omi capturing tasks from conversation"
                   className="w-full"
                 />
               </div>
               <div className="md:col-span-2 space-y-4">
-                <div className="font-mono text-xs text-white/60 tracking-wider">01 — BROWSER AUTOMATION</div>
+                <div className="font-mono text-xs text-white/60 tracking-wider">01 — PROACTIVE ASSISTANT</div>
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  Controls Your Browser, So You Don't Have To
+                  Spots Tasks and Handles Them For You
                 </h2>
                 <p className="text-base text-zinc-400 leading-relaxed">
-                  Omi navigates websites, fills forms, clicks buttons, and extracts data—all on its own. Anything you do in a browser, Omi can do for you.
+                  Omi listens to your conversations and automatically captures action items. Need to send an invoice? It's already on your list—and Omi can handle it, too.
                 </p>
               </div>
             </div>
@@ -116,18 +116,18 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 items-center">
               <div className="md:col-span-2 space-y-4 order-2 md:order-1">
-                <div className="font-mono text-xs text-white/60 tracking-wider">02 — CODING AGENT</div>
+                <div className="font-mono text-xs text-white/60 tracking-wider">02 — CONTEXTUAL INTELLIGENCE</div>
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  Writes, Edits, and Ships Your Code
+                  Knows Your Life, Helps Before You Ask
                 </h2>
                 <p className="text-base text-zinc-400 leading-relaxed">
-                  Omi reads your codebase, writes new features, fixes bugs, and refactors code. It understands your project and works within it like a real developer.
+                  Omi remembers your relationships, your preferences, your history. It proactively surfaces the right advice at the right time—no prompting needed.
                 </p>
               </div>
               <div className="md:col-span-3 relative overflow-hidden rounded-lg border-2 border-white/10 hover:border-white/20 transition-colors order-1 md:order-2">
                 <img
                   src="/images/contextual-advice.png"
-                  alt="Omi coding agent editing code"
+                  alt="Omi giving proactive contextual advice"
                   className="w-full"
                 />
               </div>
@@ -144,17 +144,17 @@ export default function Home() {
               <div className="md:col-span-3 relative overflow-hidden rounded-lg border-2 border-white/10 hover:border-white/20 transition-colors">
                 <img
                   src="/images/productivity-reminder.png"
-                  alt="Omi file system access"
+                  alt="Omi reminding you to get back to work"
                   className="w-full"
                 />
               </div>
               <div className="md:col-span-2 space-y-4">
-                <div className="font-mono text-xs text-white/60 tracking-wider">03 — FILE SYSTEM</div>
+                <div className="font-mono text-xs text-white/60 tracking-wider">03 — FOCUS & PRODUCTIVITY</div>
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  Full Access to Your Files
+                  Keeps You on Track, Handles the Rest
                 </h2>
                 <p className="text-base text-zinc-400 leading-relaxed">
-                  Omi reads, writes, and organizes files on your computer. From editing documents to managing data, it works directly with your file system to get things done.
+                  Watching YouTube when you should be working? Omi gently reminds you to get back on track. And when you're focused, it handles the busywork—browsing, coding, and organizing files.
                 </p>
               </div>
             </div>
