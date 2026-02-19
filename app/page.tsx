@@ -29,13 +29,12 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl space-y-8">
               <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight">
-                <span className="block text-white">Your AI</span>
-                <span className="block text-white">Productivity</span>
-                <span className="block text-white italic">Guardian</span>
+                <span className="block text-white">AI That Does</span>
+                <span className="block text-white italic">Real Work</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light border-l-2 border-white/20 pl-6">
-                The only AI assistant that proactively intervenes before you lose focus, make mistakes, or waste your day.
+                Browser automation, coding agent, and file system access—combined into one AI that actually gets things done on your computer.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -69,11 +68,15 @@ export default function Home() {
             <div className="flex gap-6 mt-4 font-mono text-xs text-zinc-500 justify-center">
               <span className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 bg-white animate-pulse"></div>
-                ALWAYS ON
+                BROWSER
               </span>
               <span className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 bg-white animate-pulse"></div>
-                ALWAYS LISTENING
+                CODE
+              </span>
+              <span className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-white animate-pulse"></div>
+                FILES
               </span>
             </div>
           </div>
@@ -88,17 +91,17 @@ export default function Home() {
               <div className="md:col-span-3 relative overflow-hidden rounded-lg border-2 border-white/10 hover:border-white/20 transition-colors">
                 <img
                   src="/images/task-capture.png"
-                  alt="Omi capturing tasks from conversation"
+                  alt="Omi automating browser tasks"
                   className="w-full"
                 />
               </div>
               <div className="md:col-span-2 space-y-4">
-                <div className="font-mono text-xs text-white/60 tracking-wider">01 — TASK CAPTURE</div>
+                <div className="font-mono text-xs text-white/60 tracking-wider">01 — BROWSER AUTOMATION</div>
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  Captures Tasks From Your Conversations
+                  Controls Your Browser, So You Don't Have To
                 </h2>
                 <p className="text-base text-zinc-400 leading-relaxed">
-                  Omi listens to your conversations and automatically identifies action items. When someone asks you to do something, it's already on your to-do list.
+                  Omi navigates websites, fills forms, clicks buttons, and extracts data—all on its own. Anything you do in a browser, Omi can do for you.
                 </p>
               </div>
             </div>
@@ -113,18 +116,18 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 items-center">
               <div className="md:col-span-2 space-y-4 order-2 md:order-1">
-                <div className="font-mono text-xs text-white/60 tracking-wider">02 — CONTEXTUAL INTELLIGENCE</div>
+                <div className="font-mono text-xs text-white/60 tracking-wider">02 — CODING AGENT</div>
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  Knows Your Context, Gives Better Advice
+                  Writes, Edits, and Ships Your Code
                 </h2>
                 <p className="text-base text-zinc-400 leading-relaxed">
-                  Omi remembers your relationships, your preferences, and your history. When you need advice, it draws from everything it knows about your life to help.
+                  Omi reads your codebase, writes new features, fixes bugs, and refactors code. It understands your project and works within it like a real developer.
                 </p>
               </div>
               <div className="md:col-span-3 relative overflow-hidden rounded-lg border-2 border-white/10 hover:border-white/20 transition-colors order-1 md:order-2">
                 <img
                   src="/images/contextual-advice.png"
-                  alt="Omi giving personalized advice"
+                  alt="Omi coding agent editing code"
                   className="w-full"
                 />
               </div>
@@ -141,17 +144,17 @@ export default function Home() {
               <div className="md:col-span-3 relative overflow-hidden rounded-lg border-2 border-white/10 hover:border-white/20 transition-colors">
                 <img
                   src="/images/productivity-reminder.png"
-                  alt="Omi productivity reminder"
+                  alt="Omi file system access"
                   className="w-full"
                 />
               </div>
               <div className="md:col-span-2 space-y-4">
-                <div className="font-mono text-xs text-white/60 tracking-wider">03 — FOCUS PROTECTION</div>
+                <div className="font-mono text-xs text-white/60 tracking-wider">03 — FILE SYSTEM</div>
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  Keeps You Focused When You Drift
+                  Full Access to Your Files
                 </h2>
                 <p className="text-base text-zinc-400 leading-relaxed">
-                  Watching YouTube when you should be working? Omi notices and gently reminds you to get back on track. Not annoying—just supportive.
+                  Omi reads, writes, and organizes files on your computer. From editing documents to managing data, it works directly with your file system to get things done.
                 </p>
               </div>
             </div>

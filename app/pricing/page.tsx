@@ -57,13 +57,13 @@ export default function Pricing() {
                 <div className="py-8 border-y border-white/10">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 max-w-xl mx-auto text-left">
                     {[
-                      "Full Desktop Assistant",
+                      "Browser Automation",
+                      "Coding Agent",
+                      "File System Access",
                       "Lifetime Updates",
                       "All Future Features",
                       "30-Day Money-Back Guarantee",
                       "Priority Email Support",
-                      "Unlimited Devices",
-                      "Privacy-Focused Design",
                       "No Recurring Fees Ever"
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3">
@@ -106,13 +106,13 @@ export default function Pricing() {
                   <div>
                     <h3 className="font-mono text-xs text-amber-500 mb-2">02 — RESPECT</h3>
                     <p className="text-zinc-300 leading-relaxed">
-                      Your productivity assistant should work for you, not hold you hostage with subscriptions. Own your tools.
+                      Your AI agent should work for you, not hold you hostage with subscriptions. Own your tools.
                     </p>
                   </div>
                   <div>
                     <h3 className="font-mono text-xs text-amber-500 mb-2">03 — PRIVACY</h3>
                     <p className="text-zinc-300 leading-relaxed">
-                      We never sell your data. We don't show ads. Your information is used solely to help you stay productive.
+                      We never sell your data. We don't show ads. Everything runs locally on your machine.
                     </p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function Pricing() {
                   <div>
                     <h3 className="font-mono text-xs text-amber-500 mb-2">IMMEDIATE ACCESS</h3>
                     <p className="text-zinc-300 leading-relaxed">
-                      Download and install within minutes. Start protecting your productivity today.
+                      Download and install within minutes. Start automating real work today.
                     </p>
                   </div>
                   <div>
@@ -206,7 +206,7 @@ export default function Pricing() {
               Ready to take control?
             </h2>
             <p className="text-xl text-zinc-400 font-light max-w-2xl mx-auto">
-              Join hundreds of professionals who've stopped wasting time and started achieving their goals.
+              Join hundreds of professionals who let AI handle the busywork while they focus on what matters.
             </p>
             <button className="px-16 py-6 bg-amber-500 text-black font-mono text-sm font-bold tracking-wider hover:bg-white transition-colors">
               PURCHASE NOW — $79
