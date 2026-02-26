@@ -8,7 +8,6 @@
 
 # testing
 /coverage
-.playwright-mcp/
 
 # next.js
 /.next/
@@ -28,6 +27,9 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.production
+env
+.env
 
 # vercel
 .vercel
@@ -35,3 +37,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# History
+.history/
+
+# Playwright MCP cache
+.playwright-mcp/
+
+# Local scripts
+/scripts/
+local-scripts/
+
+# Stray screenshots and images in repo root
+/*.png
+/*.jpeg
+/*.jpg
+
+# Claude Code temp files
+tmpclaude-*
