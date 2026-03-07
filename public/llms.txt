@@ -1,0 +1,31 @@
+# Omi
+
+> Proactive AI assistant that operates your computer, keeps you focused, and handles tasks autonomously.
+
+## What is Omi?
+
+Omi is a persistent AI productivity partner for macOS that goes beyond chat-based assistants. It reads your files, operates your browser, writes code, and organizes your digital life — acting as a real AI agent on your machine. Omi also listens to conversations, captures action items, and proactively intervenes when you get distracted.
+
+## Key Features
+
+- **Computer Operation**: Omi directly controls your browser, code editor, and file system. It doesn't just answer questions — it does the work on your behalf.
+- **Proactive Task Capture**: Listens to your conversations and automatically identifies action items. Need to send an invoice? Omi adds it to your list and can handle it for you.
+- **Contextual Intelligence**: Remembers your relationships, preferences, and history. Surfaces the right advice at the right time without prompting.
+- **Focus & Distraction Prevention**: Monitors your activity and gently nudges you back on track when you drift (e.g., 12 minutes deep into YouTube when a report is due).
+- **Autonomous Execution**: Handles busywork — browsing, coding, organizing files — so you can stay focused on high-value work.
+
+## Links
+
+- [Homepage](https://omi.me)
+
+## Platform
+
+macOS (desktop application).
+
+## Privacy
+
+Your data stays on your machine. Omi emphasizes local-first data ownership.
+
+## Contact
+
+Visit [omi.me](https://omi.me) for support and additional information.
